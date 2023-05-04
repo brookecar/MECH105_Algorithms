@@ -1,6 +1,6 @@
-##False Position
+False Position
 
-#Description
+Description:
 
 A False Position code in MATLAB is a numerical method for finding the root of a given function 
 within a given interval. The method works by calculating the function values at the endpoints of
@@ -24,7 +24,7 @@ Outputs:
 -ea - the approximate relative error (%)
 -iter - how many iterations were performed
 
-#Example Using a Polynomial
+Example Using a Polynomial:
 
 % Polynomials are a nice starting place, since we have equations for the roots
 testFunc = @(x) x.^3; % the root for this is pretty clearly x=0
@@ -34,7 +34,7 @@ x_left = -1;
 x_right = 1;
 [root, fx, ea, iter] = falsePosition(testFunc, x_left, x_right)
 
-Output: 
+     Output: 
 
 root =
 
@@ -55,7 +55,9 @@ iter =
 
      1
 
-#Code
+
+
+Code
 
 root=0;
 func=@(x) x.^3;
