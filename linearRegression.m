@@ -1,5 +1,14 @@
-function [fX, fY, slope, intercept, Rsquared] = linearRegression(x,y)
-%linearRegression Computes the linear regression of a data set
+%Linear Regression
+
+%Description:
+
+%Linear regression is a statistical method used to model the relationship between a dependent 
+%variable and one or more independent variables by fitting a linear equation to the observed 
+%data. The goal is to find the best linear relationship between the variables, which is 
+%represented by a line that minimizes the distance between the observed data points and the 
+%predicted values on the line. 
+
+%The linearRegression function computes the linear regression of a data set
 %   Compute the linear regression based on inputs:
 %     1. x: x-values for our data set
 %     2. y: y-values for our data set
@@ -10,6 +19,31 @@ function [fX, fY, slope, intercept, Rsquared] = linearRegression(x,y)
 %     3. slope: slope from the linear regression y=mx+b
 %     4. intercept: intercept from the linear regression y=mx+b
 %     5. Rsquared: R^2, a.k.a. coefficient of determination
+
+#Example of Use:
+
+#x = [1 2 3 4 5 6]
+%y = [1 2 1.3 3.75 2.5 100]
+
+%[fX, fY, slope, intercept, Rsquared] = linearRegression(x,y)
+
+%   Outputs:
+
+%xAnswer = 
+%   [1 3 2 5 4]
+%yAnswer = 
+%   [1 1.3 2 2.5 3.75]
+%slopeAnswer = 
+%   0.4750
+%interceptAnswer = 
+%   0.6850
+%RsquaredAnswer = 
+%   0.4758
+
+
+%Code
+
+function [fX, fY, slope, intercept, Rsquared] = linearRegression(x,y)
 
 if nargin<1
     error('Need 2 inputs: 2 arrays')
