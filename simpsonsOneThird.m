@@ -1,20 +1,57 @@
+%Simpson's 1/3 Rule:
+
+%Simpson's 1/3 Rule is a numerical integration method used to estimate the definite integral of 
+%a function. It approximates the area under a curve by dividing the area into several 
+%subintervals and approximating the area in each subinterval with a parabolic curve. 
+%Specifically, Simpson's 1/3 Rule approximates the integral by taking the sum of the areas of 
+%the parabolic curves that pass through every three adjacent points of the function. The formula
+%for Simpson's 1/3 Rule is a weighted average of the function values at the endpoints and the 
+%midpoint of each subinterval, with the weights depending on the width of the subinterval.
+
+%The MATLAB function integrates experimental data using Simpson’s 1/3 rule. The function checks
+%if there are an odd number of intervals, if there are, the trapezoidal rule is used for the 
+%last interval.
+
+Inputs
+%   x = the vector of equally spaced independent variable
+%   y = the vector of function values with respect to x
+% Outputs:
+%   I = the numerical integral calculated
+
+%Example of Use:
+
 % Two important quantities when studying fermentation are the carbon dioxide
 % evolution rate (g/h) and the oxygen uptake rate (g/h). These are calculated
 % from expiremental analysis of the inlet and exit gases of the fermentor, and the
 % flow rates, temperature, and pressure of these gases
 % Time of Fermentation (hours)
-x = [140 141 142 143 144 145 146 147 148 149];
+%time = [140 141 142 143 144 145 146 147 148 149];
 % Carbon Dioxide Evolution Rate (g/hour)
-y = [15.72 15.53 15.19 16.56 16.21 17.39 17.36 17.42 17.60 17.75];
+%CO2evo = [15.72 15.53 15.19 16.56 16.21 17.39 17.36 17.42 17.60 17.75];
 % Oxygen Uptake Rate (g/hour)
-OxUp = [15.59 16.16 15.35 15.13 14.20 14.23 14.29 12.74 14.74 13.68];
+%OxUp = [15.59 16.16 15.35 15.13 14.20 14.23 14.29 12.74 14.74 13.68];
 
-% Using your function in part 1, and the data table below, calculate the total
-% amount of carbon dioxide produced and oxygen consumed during fermentation.
-% Compare to the value that the MATLAB function trapz() computes. You would
-% expect the solutions it be similar but not identical
+% using the matlab solution
+%total_CO2_simp = Simpson(time, CO2evo)
+%total_Ox_simp = Simpson(time, OxUp)
 
-%CODE
+%   Outputs:
+
+%total_CO2_simp =
+%   174.9950
+%total_Ox_simp =
+%   171.3467
+
+
+%Code:
+
+function [I] = Simpson(x, y)
+% Numerical evaluation of integral by Simpson's 1/3 Rule
+% Inputs
+%   x = the vector of equally spaced independent variable
+%   y = the vector of function values with respect to x
+% Outputs:
+%   I = the numerical integral calculated
 
 if length(x)~=length(y)
     error('Inputs need to be of the same length')
@@ -85,5 +122,7 @@ d= @(x) (-1)^x;
     
             I= I + TRAP;
 
+
+end
 
 end
